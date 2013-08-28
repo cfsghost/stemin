@@ -1,0 +1,46 @@
+!!!
+html
+	head
+		meta(name='apple-mobile-web-app-capable', content='yes')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		title Stem OS
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		link(href='/js/enyo/enyo.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/js/enyo/enyo.js')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/index.js')
+		script
+			enyo.depends(
+				'$lib/layout',
+				'$lib/onyx',
+				'/components/stemin'
+			);
+
+	body.onyx.enyo-unselectable
+
+		script
+
+			App.require('Stemin', function() {
+
+				new (enyo.kind({
+					kind: 'FittableRows',
+					classes: 'enyo-fit onyx',
+					components: [
+						{
+							kind: 'onyx.Toolbar',
+							layoutKind: 'FittableColumnsLayout',
+							components: [
+									{ content: 'Stem OS', fit: true },
+									{ kind: 'onyx.Button', content: 'Build Now' }
+							]
+						},
+						{
+							kind: 'Stemin.Panel'
+						}
+					],
+					rendered: function() {
+						this.inherited(arguments);
+					}
+				}))().renderInto(document.body);
+			});
+

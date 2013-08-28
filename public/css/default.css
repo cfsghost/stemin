@@ -1,0 +1,51 @@
+body {
+	color: #555;
+	background: #000;
+	margin: 50px;
+}
+
+.panel > * {
+	background-color: #eee;
+	background-image: url(/img/light-bg.png);
+	-moz-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+	box-shadow: -4px 0 4px rgba(0,0,0,0.3);
+}
+
+.list-item {
+	height: 80px;
+	border-top: 1px solid #000;
+	padding: 12px 16px;
+	background-color: #333333;
+	position: relative;
+	color: #f5f5f5;
+}
+
+.list-item-label {
+	font-size: 24px;
+	line-height: 60px;
+	padding-left: 30px;
+}
+
+.list-item-desc {
+	position: absolute;
+	font-size: 14px;
+	line-height: 20px;
+	padding-left: 30px;
+	color: #ccc;
+}
+
+.list-item-left {
+	position: absolute;
+	line-height: 80px;
+	top: 35px;
+	right: 30px;
+}
+
+.toolbar-pull-right {
+	float: right;
+}
+
+.popup-dialog {
+	text-align: center;
+}
