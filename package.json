@@ -18,7 +18,8 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "frex.js": ">= 0.0.8"
+    "frex.js": ">= 0.0.8",
+	"jsdx-connman": ">= 0.0.5"
   },
   "main": "./app.js"
 }
