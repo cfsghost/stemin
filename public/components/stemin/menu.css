@@ -1,27 +1,20 @@
 
 .stemin-menu {
-	background-color: #eee;
-	background-image: url(/img/normal-bg.png);
 }
 
 .stemin-menu-item {
 	height: 32px;
-	border-top: 1px solid #bbb;
 	padding: 10px;
 	position: relative;
-	color: #333333;
-	text-shadow: 0px 1px 1px rgba(255,255,255,0.5);
+	color: white;
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.8);
 }
 
 .stemin-menu-item.onyx-selected {
-	background-color: #263854;
-	background-image: url(/img/highlight-bg.png);
-	color: white;
-	text-shadow: 0px -1px 1px rgba(0,0,0,0.8);
 
-	-moz-box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
-	-webkit-box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
-	box-shadow: inset 0px 3px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 0px 4px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0px 0px 4px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 0px 4px rgba(0,0,0,0.1);
 }
 
 .stemin-menu-item-icon {
