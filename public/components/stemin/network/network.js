@@ -20,6 +20,7 @@ enyo.kind({
 									kind: 'onyx.PickerDecorator',
 									fit: true,
 									onChange: 'methodSelected',
+									style: 'margin: 0px;',
 									components: [
 										{},
 										{
@@ -43,7 +44,7 @@ enyo.kind({
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'IP Address' },
-								{ name: 'ipaddr', kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;' }
+								{ name: 'ipaddr', kind: 'onyx.Input', classes: 'field-inputbox', fit: true }
 							]
 						},
 						{
@@ -54,7 +55,7 @@ enyo.kind({
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Netmask' },
-								{ name: 'netmask', kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;' }
+								{ name: 'netmask', kind: 'onyx.Input', classes: 'field-inputbox', fit: true }
 							]
 						},
 						{
@@ -65,7 +66,7 @@ enyo.kind({
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'Gateway' },
-								{ name: 'gateway', kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;' }
+								{ name: 'gateway', kind: 'onyx.Input', classes: 'field-inputbox', fit: true }
 							]
 						},
 						{
@@ -76,7 +77,7 @@ enyo.kind({
 							fit: true,
 							components: [
 								{ classes: 'field-label', content: 'DNS Server' },
-								{ name: 'dns', kind: 'onyx.Input', classes: 'field-inputbox', fit: true, style: 'padding-left: 10px;' }
+								{ name: 'dns', kind: 'onyx.Input', classes: 'field-inputbox', fit: true }
 							]
 						}
 					]
@@ -89,13 +90,11 @@ enyo.kind({
 						{
 							kind: 'onyx.Button',
 							classes: 'onyx-dark',
-							style: 'width: 200px;',
 							content: 'Cancel'
 						},
 						{
 							kind: 'onyx.Button',
 							classes: 'onyx-blue',
-							style: 'width: 200px;',
 							ontap: 'save',
 							content: 'Save'
 						}
@@ -181,50 +180,52 @@ enyo.kind({
 		if (!this.$.ipaddr)
 			return;
 
-		switch(inEvent.selected.value) {
-		case 'dhcp':
+		setTimeout(function() {
+			switch(inEvent.selected.value) {
+			case 'dhcp':
 
-			// Disallow modifying
-			this.$.ipaddr.disabled = true;
-			this.$.ipaddr.render();
-			this.$.netmask.disabled = true;
-			this.$.netmask.render();
-			this.$.gateway.disabled = true;
-			this.$.gateway.render();
-			this.$.dns.disabled = true;
-			this.$.dns.render();
+				// Disallow modifying
+				this.$.ipaddr.disabled = true;
+				this.$.ipaddr.render();
+				this.$.netmask.disabled = true;
+				this.$.netmask.render();
+				this.$.gateway.disabled = true;
+				this.$.gateway.render();
+				this.$.dns.disabled = true;
+				this.$.dns.render();
 
-			this.$.field_ipaddr.show();
-			this.$.field_netmask.show();
-			this.$.field_gateway.show();
-			this.$.field_dns.show();
-			break;
+				this.$.field_ipaddr.show();
+				this.$.field_netmask.show();
+				this.$.field_gateway.show();
+				this.$.field_dns.show();
+				break;
 
-		case 'static':
+			case 'static':
 
-			// Disallow modifying
-			this.$.ipaddr.disabled = false;
-			this.$.ipaddr.render();
-			this.$.netmask.disabled = false;
-			this.$.netmask.render();
-			this.$.gateway.disabled = false;
-			this.$.gateway.render();
-			this.$.dns.disabled = false;
-			this.$.dns.render();
+				// Disallow modifying
+				this.$.ipaddr.disabled = false;
+				this.$.ipaddr.render();
+				this.$.netmask.disabled = false;
+				this.$.netmask.render();
+				this.$.gateway.disabled = false;
+				this.$.gateway.render();
+				this.$.dns.disabled = false;
+				this.$.dns.render();
 
-			this.$.field_ipaddr.show();
-			this.$.field_netmask.show();
-			this.$.field_gateway.show();
-			this.$.field_dns.show();
-			break;
+				this.$.field_ipaddr.show();
+				this.$.field_netmask.show();
+				this.$.field_gateway.show();
+				this.$.field_dns.show();
+				break;
 
-		case 'pppoe':
-			this.$.field_ipaddr.hide();
-			this.$.field_netmask.hide();
-			this.$.field_gateway.hide();
-			this.$.field_dns.hide();
-			break;
-		}
+			case 'pppoe':
+				this.$.field_ipaddr.hide();
+				this.$.field_netmask.hide();
+				this.$.field_gateway.hide();
+				this.$.field_dns.hide();
+				break;
+			}
+		}.bind(this), 200);
 	},
 	save: function() {
 
